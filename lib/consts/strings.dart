@@ -32,5 +32,12 @@ const search = 'Search',
     topSellers = 'Top Sellers',
     brand = 'Brand',
     topCategories = 'Top Categories',
-    featuredCategories = 'Featured Categories'
-    ;
+    featuredCategories = 'Featured Categories',
+    featuredProducts = 'Featured Products',
+    womenDress = 'Woment Dress',
+    girlWatches = 'Girl Watches',
+    mobilePhone = 'Mobile Phones',
+    boysGlasses = 'Boys Glasses',
+    tShirt = 'T-Shirts',
+    girlsDress = 'Girls Dress';
+    

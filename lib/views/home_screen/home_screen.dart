@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:megamall_project/consts/consts.dart';
 import 'package:megamall_project/consts/list.dart';
+import 'package:megamall_project/views/home_screen/components/featured_button.dart';
 import 'package:megamall_project/widgets_common/home_buttons.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -164,29 +166,80 @@ class _HomeScreenState extends State<HomeScreen> {
                             .size(18)
                             .make()),
                     10.heightBox,
-                    Align(
-                        alignment: Alignment.centerLeft,
-                        child: featuredCategories.text
-                            .color(darkFontGrey)
-                            .fontFamily(semibold)
-                            .size(18)
-                            .make()),
-                    10.heightBox,
-                    Align(
-                        alignment: Alignment.centerLeft,
-                        child: featuredCategories.text
-                            .color(darkFontGrey)
-                            .fontFamily(semibold)
-                            .size(18)
-                            .make()),
-                    10.heightBox,
-                    Align(
-                        alignment: Alignment.centerLeft,
-                        child: featuredCategories.text
-                            .color(darkFontGrey)
-                            .fontFamily(semibold)
-                            .size(18)
-                            .make()),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(
+                            3,
+                            (index) => Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: Column(
+                                    children: [
+                                      featuredButton(
+                                          icon: featuredList1[index],
+                                          title: featuredTitle1[index]),
+                                      10.heightBox,
+                                      featuredButton(
+                                          icon: featuredList2[index],
+                                          title: featuredTitle2[index]),
+                                    ],
+                                  ),
+                                )).toList(),
+                      ),
+                    ),
+                    //featured product
+                    20.heightBox,
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      width: double.infinity, // dòng này là để full màn hình
+                      decoration: const BoxDecoration(
+                        color: redColor,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          featuredProducts.text.white
+                              .fontFamily(bold)
+                              .size(18)
+                              .make(),
+                          10.heightBox,
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: List.generate(
+                                  6,
+                                  (index) => Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Image.asset(imgP1,
+                                              width: 150, fit: BoxFit.fill),
+                                          10.heightBox,
+                                          'Laptop 4GB/64GB'
+                                              .text
+                                              .fontFamily(semibold)
+                                              .color(darkFontGrey)
+                                              .make(),
+                                          5.heightBox,
+                                          '\$2000'
+                                              .text
+                                              .fontFamily(bold)
+                                              .color(redColor)
+                                              .size(16)
+                                              .make(),
+                                        ],
+                                      )
+                                          .box
+                                          .white
+                                          .margin(const EdgeInsets.symmetric(horizontal: 4))
+                                          .roundedSM
+                                          .padding(const EdgeInsets.all(8))
+                                          .make()),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
