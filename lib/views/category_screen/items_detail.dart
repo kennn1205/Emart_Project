@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:megamall_project/consts/colors.dart';
 import 'package:megamall_project/consts/consts.dart';
+import 'package:megamall_project/consts/list.dart';
 import 'package:megamall_project/widgets_common/our_button.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -143,7 +144,7 @@ class _ItemsDetailsState extends State<ItemsDetails> {
                         children: [
                           SizedBox(
                             width: 95,
-                            child: "Color".text.color(textfieldGrey).make(),
+                            child: "Quantity".text.color(textfieldGrey).make(),
                           ),
                           Row(
                             children: [
@@ -166,6 +167,21 @@ class _ItemsDetailsState extends State<ItemsDetails> {
                             ],
                           ),
                         ],
+                      ),
+
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 95,
+                            child: "Total".text.color(textfieldGrey).make(),
+                          ),
+                          "\$0.00"
+                              .text
+                              .color(redColor)
+                              .size(16)
+                              .fontFamily(bold)
+                              .make(),
+                        ],
                       )
                           .box
                           .padding(const EdgeInsets.only(
@@ -173,6 +189,78 @@ class _ItemsDetailsState extends State<ItemsDetails> {
                           .make(),
                     ],
                   ).box.white.shadowSm.make(),
+                  //description section
+                  10.heightBox,
+                  "Description"
+                      .text
+                      .color(darkFontGrey)
+                      .fontFamily(semibold)
+                      .make(),
+                  10.heightBox,
+                  "This is a very good product. It is very useful for you"
+                      .text
+                      .color(textfieldGrey)
+                      .make(),
+
+                  //button section
+                  10.heightBox,
+                  ListView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true, // giúp listview không chiếm hết chiều cao
+                    children: List.generate(
+                        itemDetailButtonsList.length,
+                        (index) => ListTile(
+                              title: itemDetailButtonsList[index]
+                                  .text
+                                  .color(darkFontGrey)
+                                  .fontFamily(semibold)
+                                  .make(),
+                              trailing: const Icon(Icons.arrow_forward),
+                            )),
+                  ),
+                  20.heightBox,
+                  //products may like section
+                  productsyoumaylike.text
+                      .color(darkFontGrey)
+                      .size(16)
+                      .fontFamily(bold)
+                      .make(),
+                  10.heightBox,
+                  //widget copy từ home screen featured product
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                          6,
+                          (index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(imgP1,
+                                      width: 150, fit: BoxFit.fill),
+                                  10.heightBox,
+                                  'Laptop 4GB/64GB'
+                                      .text
+                                      .fontFamily(semibold)
+                                      .color(darkFontGrey)
+                                      .make(),
+                                  5.heightBox,
+                                  '\$600'
+                                      .text
+                                      .fontFamily(bold)
+                                      .color(redColor)
+                                      .size(16)
+                                      .make(),
+                                ],
+                              )
+                                  .box
+                                  .white
+                                  .margin(
+                                      const EdgeInsets.symmetric(horizontal: 4))
+                                  .roundedSM
+                                  .padding(const EdgeInsets.all(8))
+                                  .make()),
+                    ),
+                  ),
                 ],
               ),
             ),
