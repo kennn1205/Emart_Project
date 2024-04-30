@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:megamall_project/views/splash_screen/splash_screen.dart';
 
 import 'consts/consts.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.transparent,
           appBarTheme: const AppBarTheme(
+            // set màu cho appbar
+            iconTheme: IconThemeData(color: darkFontGrey),
             backgroundColor: Colors.transparent,
           ),
           fontFamily: regular,

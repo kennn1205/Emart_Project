@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               .color(darkFontGrey)
                                               .make(),
                                           5.heightBox,
-                                          '\$2000'
+                                          '\$600'
                                               .text
                                               .fontFamily(bold)
                                               .color(redColor)
@@ -231,7 +231,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       )
                                           .box
                                           .white
-                                          .margin(const EdgeInsets.symmetric(horizontal: 4))
+                                          .margin(const EdgeInsets.symmetric(
+                                              horizontal: 4))
                                           .roundedSM
                                           .padding(const EdgeInsets.all(8))
                                           .make()),
@@ -240,6 +241,76 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
+                    //three swiper
+                    20.heightBox,
+                    VxSwiper.builder(
+                      itemCount: slidersList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            secondSlidersList[index],
+                            fit: BoxFit.fill,
+                          )
+                              .box
+                              .rounded
+                              .clip(Clip.antiAlias)
+                              .margin(const EdgeInsets.symmetric(horizontal: 8))
+                              .make(),
+                        );
+                      },
+                      height: 150, // chiều cao của ảnh
+                      viewportFraction: 1.0, // chiều rộng của ảnh
+                      autoPlay: true, // tự động chuyển ảnh
+                      autoPlayAnimationDuration:
+                          1.seconds, // thời gian chuyển ảnh mỗi lần chuyển
+                      autoPlayCurve: Curves.linear, // chuyển ảnh mượt mà
+                      enableInfiniteScroll: true, // vô hạn cuộn
+                      autoPlayInterval: 3.seconds, // thời gian chuyển ảnh
+                      //bo tròn ảnh
+                    ),
+
+                    //all product
+                    20.heightBox,
+                    GridView.builder(
+                        physics:
+                            const NeverScrollableScrollPhysics(), // dòng này để không cuộn màn hình
+                        shrinkWrap: true, // dòng này để không bị lỗi khi chạy
+                        itemCount: 6, // số lượng sản phẩm hiển thị
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                          mainAxisExtent: 250,
+                        ),
+                        itemBuilder: (context, index) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(imgP5, width: 200,height: 170, fit: BoxFit.fill),
+                              10.heightBox,
+                              'Laptop 4GB/64GB'
+                                  .text
+                                  .fontFamily(semibold)
+                                  .color(darkFontGrey)
+                                  .make(),
+                              5.heightBox,
+                              '\$600'
+                                  .text
+                                  .fontFamily(bold)
+                                  .color(redColor)
+                                  .size(16)
+                                  .make(),
+                            ],
+                          )
+                              .box
+                              .white
+                              .margin(const EdgeInsets.symmetric(horizontal: 4))
+                              .roundedSM
+                              .padding(const EdgeInsets.all(8))
+                              .make();
+                        }),
                   ],
                 ),
               ),
