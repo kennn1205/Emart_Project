@@ -12,6 +12,7 @@ const nameHint = 'Enter your Name';
 const phone = 'Phone';
 const login = 'Log in';
 const signUp = 'Sign up';
+const logout = "Logout";
 const createNewAccount = 'or, create a new account';
 const loginWith = 'Log in with';
 const privacyPolicy = 'Privacy Policy';
@@ -61,3 +62,6 @@ const video = "Video",
     returnpolicy = "Return Policy",
     supportpolicy = "Support Policy",
     productsyoumaylike = "Products you may like";
+
+//profile screen strings
+const wishlist = "Wishlist", orders = "My Orders", messages = "Messages";
